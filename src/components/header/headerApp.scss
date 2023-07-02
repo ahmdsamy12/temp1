@@ -1,0 +1,98 @@
+@use "./../global-sass/global";
+@use "./../global-sass/colors";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @extend %container;
+    height: 60px;
+    background-color: black;
+
+    .logo {
+        a {
+            color: #fff;
+            text-transform: capitalize;
+        }
+    }
+
+    .navs {
+        @media (max-width:767px) {
+            & {
+                opacity: 0;
+                width: 100%;
+                position: relative;
+                top: 40px;
+                background-color: blue;
+                height: auto;
+                z-index: 99;
+                transition: .5s;
+            }
+        }
+
+        .navs-links {
+            @media (max-width:767px) {
+                & {
+                    display: flex;
+                    width: 100%;
+                    flex-direction: column;
+                    padding: 20px 0;
+                    position: absolute;
+                    top: 0;
+                    background-color: black;
+                    transition: 0.5s;
+                }
+            }
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            li {
+                a{
+                color: #fff;
+                text-transform: capitalize;
+                }
+            }
+        }
+    }
+
+    .header-icon {
+        display: none;
+
+        @media (max-width:767px) {
+            & {
+                display: block;
+                position: absolute;
+                right: 50px;
+            }
+        }
+
+        span {
+            width: 50px;
+            height: 2px;
+            background-color: #fff;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        & span:nth-child(2) {
+            width: 70%;
+            transition: .5s;
+        }
+
+        & span:nth-child(3) {
+            width: 50%;
+            transition: .5s;
+        }
+
+        &:hover span:nth-child(2) {
+            width: 100%;
+        }
+
+        &:hover span:nth-child(3) {
+            width: 100%;
+        }
+    }
+}
